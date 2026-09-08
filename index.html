@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<title>Amostragem — Caixa Laudo</title>
+<style>
+  :root{
+    --bg: #F4F5F3;
+    --panel: #FFFFFF;
+    --ink: #1E2A2E;
+    --ink-soft: #5B6B70;
+    --line: #DADFE0;
+    --teal: #2C6E75;
+    --teal-deep: #1D4E54;
+    --amber: #B8722E;
+    --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    --sans: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  * { box-sizing: border-box; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    padding: 28px 16px 60px;
+  }
+  .wrap{ max-width: 880px; margin: 0 auto; }
+
+  header{
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  header h1{
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  header .sub{
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    font-family: var(--mono);
+  }
+
+  .ref-table{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-bottom: 22px;
+    font-size: 0.82rem;
+  }
+  .ref-table .ref-title{
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--teal-deep);
+  }
+  .ref-table table{ width:100%; border-collapse: collapse; font-family: var(--mono); }
+  .ref-table td{ padding: 4px 6px; border-bottom: 1px dashed var(--line); color: var(--ink-soft); }
+  .ref-table tr:last-child td{ border-bottom: none; }
+  .ref-table td.n{ text-align:right; color: var(--ink); font-weight: 600; }
+
+  .panel{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 22px;
+    margin-bottom: 22px;
+  }
+
+  .field-row{
+    display:flex;
+    gap: 14px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  label{
+    display:block;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  input[type=number]{
+    width: 220px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    font-family: var(--mono);
+    background: #FAFBFA;
+  }
+  input[type=number]:focus{ outline: 2px solid var(--teal); outline-offset: 1px; }
+
+  button{
+    background: var(--teal);
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: var(--sans);
+  }
+  button:hover{ background: var(--teal-deep); }
+  button:focus-visible{ outline: 2px solid var(--ink); outline-offset: 2px; }
+  button.secondary{
+    background: transparent;
+    color: var(--teal-deep);
+    border: 1px solid var(--teal);
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    font-weight: 500;
+  }
+  button.secondary:hover{ background: #EAF2F2; }
+
+  .error{
+    color: var(--amber);
+    font-size: 0.82rem;
+    margin-top: 8px;
+    display:none;
+  }
+
+  .result-head{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .result-head .qty{ font-size: 0.9rem; color: var(--ink-soft); }
+  .result-head .qty b{ color: var(--ink); }
+  .result-head .n-badge{
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--teal-deep);
+  }
+
+  .list{
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .sample-row{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    border-left: 4px solid var(--teal);
+    font-family: var(--mono);
+    font-size: 1rem;
+    cursor: pointer;
+    background: var(--panel);
+  }
+  .sample-row:last-child{ border-bottom: none; }
+  .sample-row:hover{ background: #F7F9F8; }
+  .sample-row input[type=checkbox]{
+    width: 24px;
+    height: 24px;
+    accent-color: var(--teal);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  .sample-row .s-rolo{
+    font-weight: 700;
+    color: var(--ink);
+    min-width: 84px;
+    font-size: 1.05rem;
+  }
+  .sample-row .s-range{
+    color: var(--ink-soft);
+    flex: 1;
+  }
+  .sample-row .c-tag{
+    color: var(--teal-deep);
+    font-weight: 700;
+    background: #EAF2F2;
+    border-radius: 3px;
+    padding: 3px 9px;
+    font-size: 0.86rem;
+  }
+  .sample-row.checked{
+    border-left-color: var(--line);
+    background: #FAFBFA;
+  }
+  .sample-row.checked .s-rolo,
+  .sample-row.checked .s-range{
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  .progress-wrap{
+    margin-top: 4px;
+  }
+  .progress-text{
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    margin-bottom: 6px;
+  }
+  .progress-text b{ color: var(--teal-deep); font-size: 1rem; }
+  .progress-bar{
+    height: 8px;
+    border-radius: 4px;
+    background: #E9EDEC;
+    overflow: hidden;
+  }
+  .progress-bar-fill{
+    height: 100%;
+    background: var(--teal);
+    border-radius: 4px;
+    transition: width 0.2s ease;
+  }
+  .saved-note{
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+    margin-top: 8px;
+    font-style: italic;
+  }
+  .saved-lots{
+    margin-top: 10px;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .saved-lot-chip{
+    border: 1px solid var(--line);
+    background: #F7F9F8;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-family: var(--mono);
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .saved-lot-chip:hover{ background: #EAF2F2; border-color: var(--teal); color: var(--teal-deep); }
+  .saved-lot-chip b{ color: var(--ink); }
+  .chip-del{
+    display:inline-block;
+    margin-left: 6px;
+    color: var(--amber);
+    font-weight: 700;
+    padding: 0 3px;
+  }
+  .chip-del:hover{ color: #8f5522; }
+
+  .actions{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .copy-note{ font-size: 0.76rem; color: var(--ink-soft); }
+
+  .empty{
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    font-style: italic;
+  }
+
+  @media print{
+    body{ background: white; padding: 0; }
+    .panel:first-of-type, .actions, .ref-table{ display:none; }
+    button{ display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <h1>Amostragem — Caixa Laudo</h1>
+      <div class="sub">Sistemática de coleta aleatória por conjuntos · Cliente: Blanver</div>
+    </div>
+  </header>
+
+  <div class="ref-table">
+    <div class="ref-title">Tabela de referência (quantidade de amostras por faixa de lote)</div>
+    <table>
+      <tr><td>Até 3.200 un.</td><td class="n">39 amostras</td></tr>
+      <tr><td>3.201 a 35.000 un.</td><td class="n">60 amostras</td></tr>
+      <tr><td>35.001 a 150.000 un.</td><td class="n">96 amostras</td></tr>
+      <tr><td>Acima de 150.000 un.</td><td class="n">96 amostras</td></tr>
+    </table>
+  </div>
+
+  <div class="panel">
+    <div class="field-row">
+      <div>
+        <label for="lotId">Identificação do lote / OP</label>
+        <input type="text" id="lotId" placeholder="ex.: OP 45210" style="width:180px;">
+      </div>
+      <div>
+        <label for="qty">Quantidade total de unidades do lote</label>
+        <input type="number" id="qty" min="1" placeholder="ex.: 48000">
+      </div>
+      <div>
+        <label for="carreiras">Nº de carreiras da bobina</label>
+        <input type="number" id="carreiras" min="1" max="8" value="1" style="width:120px;">
+      </div>
+      <div>
+        <label for="rollSize">Quantidade por rolo</label>
+        <input type="number" id="rollSize" min="1" value="2000" style="width:140px;">
+      </div>
+      <button id="genBtn">Gerar nova amostragem</button>
+      <button class="secondary" id="loadBtn">Carregar lote salvo</button>
+    </div>
+    <div class="error" id="err">Informe uma quantidade de lote válida (maior que zero).</div>
+    <div class="error" id="errCarreiras">Informe um número de carreiras entre 1 e 8.</div>
+    <div class="error" id="errRoll">Informe uma quantidade por rolo válida (maior que zero).</div>
+    <div class="error" id="errLotId">Informe uma identificação de lote / OP.</div>
+    <div class="error" id="errLoad">Não há amostragem salva com essa identificação.</div>
+    <div class="saved-lots" id="savedLots"></div>
+  </div>
+
+  <div class="panel" id="resultPanel" style="display:none;">
+    <div class="result-head">
+      <div class="qty">Lote de <b id="qtyOut">—</b> unidades</div>
+      <div class="n-badge" id="nOut">—</div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-text" id="progressOut"></div>
+      <div class="progress-bar"><div class="progress-bar-fill" id="progressBarFill" style="width:0%;"></div></div>
+    </div>
+    <div class="list" id="grid" style="margin-top:14px;"></div>
+    <div class="saved-note">Progresso salvo automaticamente neste navegador — pode fechar e retomar em outro dia informando a mesma identificação de lote.</div>
+    <div class="actions">
+      <span class="copy-note" id="copyNote"></span>
+      <div style="display:flex; gap:10px;">
+        <button class="secondary" id="copyBtn">Copiar lista completa</button>
+        <button class="secondary" id="deleteBtn" style="border-color:var(--amber); color:var(--amber);">Excluir este lote</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="emptyPanel">
+    <p class="empty">Informe a identificação do lote/OP, a quantidade, o número de carreiras e a quantidade por rolo, e clique em "Gerar nova amostragem". A amostra de cada rolo é sempre a última etiqueta produzida nele. Como a produção pode levar mais de um dia, o progresso fica salvo neste navegador: basta informar a mesma identificação e clicar em "Carregar lote salvo" para continuar de onde parou.</p>
+  </div>
+
+</div>
+
+<script>
+function sampleSizeFor(qty){
+  if (qty <= 3200) return 39;
+  if (qty <= 35000) return 60;
+  if (qty <= 150000) return 96;
+  return 96;
+}
+
+const STORAGE_PREFIX = 'caixaLaudo_';
+
+function storageKey(lotId){
+  return STORAGE_PREFIX + lotId.trim();
+}
+
+function saveLotState(state){
+  try{
+    localStorage.setItem(storageKey(state.lotId), JSON.stringify(state));
+  } catch(e){ /* localStorage indisponível — segue sem persistir */ }
+}
+
+function loadLotState(lotId){
+  try{
+    const raw = localStorage.getItem(storageKey(lotId));
+    return raw ? JSON.parse(raw) : null;
+  } catch(e){ return null; }
+}
+
+function listSavedLots(){
+  const out = [];
+  for (let i=0;i<localStorage.length;i++){
+    const key = localStorage.key(i);
+    if (key && key.startsWith(STORAGE_PREFIX)){
+      try{
+        const state = JSON.parse(localStorage.getItem(key));
+        out.push(state);
+      } catch(e){}
+    }
+  }
+  out.sort((a,b) => (b.timestamp || 0) - (a.timestamp || 0));
+  return out;
+}
+
+function deleteLotState(lotId){
+  try{
+    localStorage.removeItem(storageKey(lotId));
+  } catch(e){ /* localStorage indisponível */ }
+}
+
+function refreshSavedLotsList(){
+  const container = document.getElementById('savedLots');
+  const lots = listSavedLots();
+  container.innerHTML = '';
+  lots.forEach(state => {
+    const done = state.rolls.filter(r => r.checked).length;
+    const total = state.rolls.length;
+    const dateStr = state.timestamp ? new Date(state.timestamp).toLocaleDateString('pt-BR') : '';
+    const chip = document.createElement('div');
+    chip.className = 'saved-lot-chip';
+    chip.innerHTML = `<b>${state.lotId}</b> — ${done}/${total} · ${dateStr} <span class="chip-del" title="Excluir lote">×</span>`;
+    chip.addEventListener('click', (ev) => {
+      if (ev.target.classList.contains('chip-del')){
+        ev.stopPropagation();
+        if (confirm('Excluir a amostragem salva do lote "' + state.lotId + '"? Essa ação não pode ser desfeita.')){
+          deleteLotState(state.lotId);
+          if (currentState && currentState.lotId === state.lotId){
+            currentState = null;
+            document.getElementById('resultPanel').style.display = 'none';
+            document.getElementById('emptyPanel').style.display = 'block';
+            document.getElementById('lotId').value = '';
+          }
+          refreshSavedLotsList();
+        }
+        return;
+      }
+      document.getElementById('lotId').value = state.lotId;
+      renderLotState(state);
+    });
+    container.appendChild(chip);
+  });
+}
+
+let currentState = null;
+
+function renderLotState(state){
+  currentState = state;
+
+  document.getElementById('qty').value = state.qty;
+  document.getElementById('carreiras').value = state.carreiras;
+  document.getElementById('rollSize').value = state.rollSize;
+
+  document.getElementById('qtyOut').textContent = state.qty.toLocaleString('pt-BR');
+  document.getElementById('nOut').textContent = state.rolls.length + ' amostras (última etiqueta de cada rolo)' + (state.carreiras > 1 ? ' · ' + state.carreiras + ' carreiras' : '') + (state.limited ? ' · limitado a ' + state.numRolls + ' rolo(s) no lote' : '');
+
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  state.rolls.forEach((r, idx) => {
+    const label = document.createElement('label');
+    label.className = 'sample-row' + (r.checked ? ' checked' : '');
+    label.innerHTML = `
+      <input type="checkbox" class="sample-check" data-idx="${idx}" ${r.checked ? 'checked' : ''}>
+      <span class="s-rolo">Rolo ${r.rollNum}</span>
+      <span class="s-range">última etiqueta · unid. ${r.unitEnd.toLocaleString('pt-BR')}</span>
+      ${r.sample.carreira ? `<span class="c-tag">C${r.sample.carreira}</span>` : ''}
+    `;
+    grid.appendChild(label);
+  });
+
+  grid.querySelectorAll('.sample-check').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const idx = parseInt(cb.dataset.idx, 10);
+      currentState.rolls[idx].checked = cb.checked;
+      cb.closest('.sample-row').classList.toggle('checked', cb.checked);
+      updateProgress();
+      currentState.timestamp = Date.now();
+      saveLotState(currentState);
+      refreshSavedLotsList();
+    });
+  });
+
+  updateProgress();
+
+  document.getElementById('resultPanel').style.display = 'block';
+  document.getElementById('emptyPanel').style.display = 'none';
+  document.getElementById('copyNote').textContent = '';
+  ['err','errCarreiras','errRoll','errLotId','errLoad'].forEach(id => document.getElementById(id).style.display = 'none');
+}
+
+function updateProgress(){
+  const total = currentState.rolls.length;
+  const done = currentState.rolls.filter(r => r.checked).length;
+  document.getElementById('progressOut').innerHTML = '<b>' + done + '</b> de ' + total + ' coletadas';
+  document.getElementById('progressBarFill').style.width = (total ? (done/total*100) : 0) + '%';
+}
+
+document.getElementById('genBtn').addEventListener('click', () => {
+  const lotId = document.getElementById('lotId').value;
+  const qty = parseInt(document.getElementById('qty').value, 10);
+  const carreiras = parseInt(document.getElementById('carreiras').value, 10);
+  const rollSize = parseInt(document.getElementById('rollSize').value, 10);
+
+  const errIds = ['err','errCarreiras','errRoll','errLotId','errLoad'];
+  errIds.forEach(id => document.getElementById(id).style.display = 'none');
+  let hasError = false;
+
+  if (!lotId || !lotId.trim()){
+    document.getElementById('errLotId').style.display = 'block';
+    hasError = true;
+  }
+  if (!qty || qty <= 0){
+    document.getElementById('err').style.display = 'block';
+    hasError = true;
+  }
+  if (!carreiras || carreiras < 1 || carreiras > 8){
+    document.getElementById('errCarreiras').style.display = 'block';
+    hasError = true;
+  }
+  if (!rollSize || rollSize <= 0){
+    document.getElementById('errRoll').style.display = 'block';
+    hasError = true;
+  }
+  if (hasError){
+    document.getElementById('resultPanel').style.display = 'none';
+    document.getElementById('emptyPanel').style.display = 'block';
+    return;
+  }
+
+  const n = sampleSizeFor(qty);
+  const numRolls = Math.ceil(qty / rollSize);
+
+  // a amostra é sempre a última etiqueta do rolo — sorteamos QUAIS rolos são amostrados
+  const selectedCount = Math.min(n, numRolls);
+  const rollOrder = Array.from({length: numRolls}, (_, i) => i + 1);
+  for (let i = rollOrder.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [rollOrder[i], rollOrder[j]] = [rollOrder[j], rollOrder[i]];
+  }
+  const selectedRolls = new Set(rollOrder.slice(0, selectedCount));
+
+  const rolls = [];
+  Array.from(selectedRolls).sort((a,b)=>a-b).forEach(rollNum => {
+    const unitStart = (rollNum - 1) * rollSize + 1;
+    const unitEnd = Math.min(rollNum * rollSize, qty);
+    const lastPos = unitEnd - unitStart + 1;
+    rolls.push({
+      rollNum, unitStart, unitEnd,
+      sample: { pos: lastPos, carreira: carreiras > 1 ? (1 + Math.floor(Math.random() * carreiras)) : null },
+      checked: false
+    });
+  });
+
+  const state = {
+    lotId: lotId.trim(), qty, carreiras, rollSize, numRolls,
+    limited: selectedCount < n,
+    rolls,
+    timestamp: Date.now()
+  };
+
+  saveLotState(state);
+  refreshSavedLotsList();
+  renderLotState(state);
+});
+
+document.getElementById('loadBtn').addEventListener('click', () => {
+  const lotId = document.getElementById('lotId').value;
+  document.getElementById('errLoad').style.display = 'none';
+  document.getElementById('errLotId').style.display = 'none';
+
+  if (!lotId || !lotId.trim()){
+    document.getElementById('errLotId').style.display = 'block';
+    return;
+  }
+  const state = loadLotState(lotId.trim());
+  if (!state){
+    document.getElementById('errLoad').style.display = 'block';
+    return;
+  }
+  renderLotState(state);
+});
+
+document.getElementById('copyBtn').addEventListener('click', () => {
+  if (!currentState) return;
+  let text = `Amostragem Caixa Laudo — Lote ${currentState.lotId} — ${currentState.qty} un. — ${currentState.rolls.length} amostras (última etiqueta de cada rolo) — rolo de ${currentState.rollSize} un.`;
+  text += currentState.carreiras > 1 ? ` — ${currentState.carreiras} carreiras\n\n` : `\n\n`;
+  currentState.rolls.forEach(r => {
+    const s = r.sample;
+    const check = r.checked ? '[x]' : '[ ]';
+    const item = s.carreira ? `última etiqueta, pos. ${s.pos} (C${s.carreira})` : `última etiqueta, pos. ${s.pos}`;
+    text += `${check} Rolo ${r.rollNum} (unidades ${r.unitStart}-${r.unitEnd}): ${item}\n`;
+  });
+  navigator.clipboard.writeText(text).then(() => {
+    document.getElementById('copyNote').textContent = 'Lista copiada.';
+    setTimeout(() => { document.getElementById('copyNote').textContent = ''; }, 2000);
+  });
+});
+
+document.getElementById('deleteBtn').addEventListener('click', () => {
+  if (!currentState) return;
+  if (confirm('Excluir a amostragem salva do lote "' + currentState.lotId + '"? Essa ação não pode ser desfeita.')){
+    deleteLotState(currentState.lotId);
+    currentState = null;
+    document.getElementById('resultPanel').style.display = 'none';
+    document.getElementById('emptyPanel').style.display = 'block';
+    document.getElementById('lotId').value = '';
+    refreshSavedLotsList();
+  }
+});
+
+refreshSavedLotsList();
+</script>
+</body>
+</html>
